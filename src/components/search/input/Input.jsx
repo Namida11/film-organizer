@@ -1,16 +1,16 @@
-import React from 'react'
+// Input.js
+import React from 'react';
 
-function Input() {
+function Input({ value, onChange, placeholder }) {
   return (
-    <>
-      <input
-        className="outline-0 border border-1 rounded py-1 px-6 w-[300px]"
-        type='text'
-        id=""
-        placeholder="Search movie..."
-      />
-    </>
-  )
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      className="outline-0 border border-1 rounded py-1 px-6 w-[300px]"
+    />
+  );
 }
 
-export default Input
+export default Input;

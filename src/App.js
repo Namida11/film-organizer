@@ -1,15 +1,20 @@
-import List from "./components/favoriList/List";
-import Header from "./components/header/Header";
-import MovieList from "./components/movie/movieList/MovieList";
-import Search from "./components/search/input/Search";
+import React from "react";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Basket from "./pages/basket/Basket";
 import "./index.css";
+import Home from "./pages/home/Home";
+import Details from "./pages/movieDetails/MovieDetails";
 function App() {
   return (
-    <div className="App bg-[#14213d]">
-      <Header />
-      <Search />
-      <MovieList />
-      <List/>
+    <div className="App ">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/basket" element={<Basket />} />
+          <Route path="/details" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
