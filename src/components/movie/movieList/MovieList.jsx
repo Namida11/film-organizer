@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectMovies, setMovies, addToList, selectSelectedList, selectLists, setSelectedList } from '../../../store/moviesSlice';
+import { selectMovies, setMovies, addToList, selectSelectedList, selectLists, setSelectedList ,getMovie} from '../../../store/moviesSlice';
 import Button from '../../search/button/Button';
 import List from '../../favoriList/List';
 import { Link } from 'react-router-dom';
@@ -39,6 +39,9 @@ function MovieList() {
 
     console.log("Go Basket clicked");
   };
+  const handleDetails = (movie) => {
+    dispatch(getMovie(movie)); 
+  };
 
   return (
     <>
@@ -50,11 +53,11 @@ function MovieList() {
                 <img src={movie.Poster} alt="" className="w-[100%] h-[100%] bg-cover" />
               </div>
               <div className='description flex flex-col gap-5'>
-                <h2>{movie.Title}</h2>
+                <h2 className='font-bold text-xl'>{movie.Title}</h2>
                 <div className=' flex flex-col gap-4'>
                   <Button name={"Add List"} className={'bg-[#d00000] hover:bg-opacity-75 border-[#d00000]'} onClick={() => handleAddToList(movie)} />
-                 <Link to={"/details"}>
-                 <Button name={'Details'} className={'border-[#fdc500] hover:bg-[#fdc500]'} />
+                 <Link to={`/details`}>
+                 <Button name={'Details'} className={'border-[#fdc500] hover:bg-[#fdc500]'} onClick={() => handleDetails(movie)}  />
                  </Link> 
                 </div>
               </div>

@@ -1,4 +1,3 @@
-// Search.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMovies } from '../../../store/moviesSlice';
@@ -16,7 +15,7 @@ function Search() {
       if (!data.Search || data.Search.length === 0) {
         console.log('Movie not found');
       } else {
-        // Filmlerin isimlerini küçük harfe çevirerek dispatch yap
+        
         const movies = data.Search.map((movie) => ({ ...movie, Title: movie.Title.toLowerCase() }));
         dispatch(setMovies(movies));
       }
